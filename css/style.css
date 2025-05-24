@@ -290,11 +290,11 @@ section {
 
 .home-img img {
     position: absolute;
-    bottom: 0;
+    bottom: 10vh;
     right: 40px;
     pointer-events: none;
     max-width: 480px;
-    max-height: 100vh;
+    max-height: 80vh;
 }
 
 span {
@@ -309,7 +309,7 @@ span {
 }
 
 .about-img img {
-    width: 40vw;
+    width: 20vw;
 }
 
 .heading {
