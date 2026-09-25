@@ -45,16 +45,20 @@ navbar.classList.remove('active');
 /*========== deslizador ==========*/
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
-    spaceBetween: 50,
+    spaceBetween: 30,
     loop: true,
-    grabCursor: true,
+    autoplay: {
+        delay: 4000,              // tempo em milissegundos (4 segundos)
+        disableOnInteraction: false,  // continua automático mesmo após o usuário clicar
+        pauseOnMouseEnter: true,   // pausa quando o mouse passa em cima (opcional)
+    },
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+        el: ".swiper-pagination",
+        clickable: true,
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
 });
 
