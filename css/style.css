@@ -702,6 +702,12 @@ span {
         opacity: .7;
     }
 
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 5rem;   /* espaço embaixo */
+    }
+
     .home .home-content {
         max-width: 50rem;
     }
@@ -715,7 +721,14 @@ span {
     }
 
     .home-img img {
-        display: none;
+        position: relative;      /* sai do absolute */
+        display: block;
+        bottom: auto;
+        right: auto;
+        max-width: 70%;          /* largura adequada ao celular */
+        max-height: 40vh;
+        margin: 3rem auto 0;     /* centraliza abaixo do texto */
+        border-radius: 20px
     }
 
     .footer {
