@@ -384,83 +384,104 @@ span {
     margin: 1rem 0 3rem;
 }
 
+/* ===== PORTFOLIO ===== */
 .portfolio {
-    min-height: auto;
-    padding-bottom: 10rem;
+    background: var(--second-bg-color);
 }
 
-.portfolio h2 {
-    margin-bottom: 4rem;
-}
-
-.portfolio .portfolio-container {
+.portfolio-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
+    margin-top: 3rem;
 }
 
-.portfolio-container .portfolio-box {
+/* A caixa agora é uma "coluna": imagem em cima, descrição embaixo */
+.portfolio-box {
     position: relative;
     display: flex;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    flex-direction: column;
+    background: var(--bg-color);
+    border-radius: 1.5rem;
     overflow: hidden;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.portfolio-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+/* A imagem fica em cima, com altura fixa */
 .portfolio-box img {
     width: 100%;
-    transition: .5s ease;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .portfolio-box:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-.portfolio-box .portfolio-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
-    color: yellow;
+/* A camada agora fica FORA da imagem, abaixo dela */
+.portfolio-layer {
+    position: relative;      /* não é mais absolute! */
+    background: var(--bg-color);
+    padding: 1.8rem 2rem 2rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    text-align: center;
-    padding: 0 4rem;
-    opacity: 0;
-    transition: .5s ease;
+    gap: 0.8rem;
+    flex-grow: 1;
+    text-align: left;
+
+    /* Detalhe bonito: uma barra colorida no topo da descrição */
+    border-top: 3px solid var(--main-color);
 }
 
-.portfolio-box:hover .portfolio-layer {
-    opacity: 1;
-}
-
+/* Título da capacidade */
 .portfolio-layer h4 {
-    font-size: 3rem;
+    font-size: 1.9rem;
+    color: var(--main-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
+/* Descrição — AGORA JUSTIFICADA */
 .portfolio-layer p {
-    font-size: 1.6rem;
-    margin: .3rem 0 1rem;
+    font-size: 1.3rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    text-align: justify;        /* justifica o texto */
+    hyphens: auto;              /* hifenização automática */
+    -webkit-hyphens: auto;      /* suporte Safari */
+    -ms-hyphens: auto;          /* suporte Edge/IE */
 }
 
+/* Ícone (link externo) */
 .portfolio-layer a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
-    height: 5rem;
-    background: var(--white-color);
+    width: 4rem;
+    height: 4rem;
+    background: var(--main-color);
     border-radius: 50%;
+    margin-top: auto;       /* empurra para o final da caixa */
+    align-self: flex-end;   /* alinha à direita */
+    transition: 0.3s ease;
 }
 
 .portfolio-layer a i {
     font-size: 2rem;
-    color: #333;
+    color: var(--second-bg-color);
+}
+
+.portfolio-layer a:hover {
+    background: var(--text-color);
+    transform: rotate(360deg) scale(1.1);
 }
 
 .testimonial-container {
